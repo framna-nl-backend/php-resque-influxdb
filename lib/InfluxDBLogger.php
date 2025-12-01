@@ -288,12 +288,12 @@ class InfluxDBLogger
     /**
      * Get fields that need to be in influxDB.
      *
-     * @param JobHandler $job Instance of Resque\JobHandler for the job that failed.
-     * @param Throwable  $e   Exception thrown by the job.
+     * @param JobHandler     $job Instance of Resque\JobHandler for the job that failed.
+     * @param Throwable|null $e   Exception thrown by the job.
      *
      * @return array<string, bool|float|int|string> Fields relevant for the job.
      */
-    private static function getJobField(JobHandler $job, Throwable $e = null): array
+    private static function getJobField(JobHandler $job, ?Throwable $e = null): array
     {
         $fields        = [
             'start_time'     => $job->start_time,
